@@ -8,23 +8,23 @@ use phpOMS\Router\RouteVerb;
 return [
     '^.*/dbeditor/query.*$' => [
         [
-            'dest' => '\Modules\DatabaseEditor\Controller\ApiController:apiQueryExecute',
-            'verb' => RouteVerb::GET,
+            'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiQueryExecute',
+            'verb'       => RouteVerb::GET,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
-                'type'  => PermissionType::READ,
-                'state' => PermissionState::DATABASE_EDITOR,
+                'type'   => PermissionType::READ,
+                'state'  => PermissionState::DATABASE_EDITOR,
             ],
         ],
     ],
     '^.*/dbeditor/connection.*$' => [
         [
-            'dest' => '\Modules\DatabaseEditor\Controller\ApiController:apiConnectionTest',
-            'verb' => RouteVerb::GET,
+            'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiConnectionTest',
+            'verb'       => RouteVerb::GET,
             'permission' => [
                 'module' => ApiController::MODULE_NAME,
-                'type'  => PermissionType::READ,
-                'state' => PermissionState::DATABASE_EDITOR,
+                'type'   => PermissionType::READ,
+                'state'  => PermissionState::DATABASE_EDITOR,
             ],
         ],
     ],
