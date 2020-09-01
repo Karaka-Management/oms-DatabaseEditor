@@ -28,5 +28,5 @@ abstract class PermissionState extends Enum
 {
     public const DATABASE_EDITOR = 1;
 
-    public const TEMPLATE        = 2;
+    public const TEMPLATE = 2;
 }
