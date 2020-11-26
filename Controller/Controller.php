@@ -15,7 +15,6 @@ declare(strict_types=1);
 namespace Modules\DatabaseEditor\Controller;
 
 use phpOMS\Module\ModuleAbstract;
-use phpOMS\Module\WebInterface;
 
 /**
  * Database controller class.
