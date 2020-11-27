@@ -24,7 +24,7 @@ namespace Modules\DatabaseEditor\Models;
  */
 class Table
 {
-    public $name = '';
+    public string $name = '';
 
-    public $fields = [];
+    public array $fields = [];
 }
