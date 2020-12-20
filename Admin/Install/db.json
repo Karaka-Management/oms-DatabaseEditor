@@ -1,0 +1,61 @@
+{
+    "db_editor_query": {
+        "name": "db_editor_query",
+        "fields": {
+            "db_editor_query_id": {
+                "name": "db_editor_query_id",
+                "type": "INT",
+                "null": false,
+                "primary": true,
+                "autoincrement": true
+            },
+            "db_editor_query_title": {
+                "name": "db_editor_query_title",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "db_editor_query_type": {
+                "name": "db_editor_query_type",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "db_editor_query_host": {
+                "name": "db_editor_query_host",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "db_editor_query_port": {
+                "name": "db_editor_query_port",
+                "type": "int(11)",
+                "null": false
+            },
+            "db_editor_query_db": {
+                "name": "db_editor_query_db",
+                "type": "VARCHAR(255)",
+                "null": false
+            },
+            "db_editor_query_query": {
+                "name": "db_editor_query_query",
+                "type": "TEXT",
+                "null": false
+            },
+            "db_editor_query_result": {
+                "name": "db_editor_query_result",
+                "type": "TEXT",
+                "null": false
+            },
+            "db_editor_query_created_by": {
+                "name": "db_editor_query_created_by",
+                "type": "INT",
+                "null": false,
+                "foreignTable": "account",
+                "foreignKey": "account_id"
+            },
+            "db_editor_query_created_at": {
+                "name": "db_editor_query_created_at",
+                "type": "DATETIME",
+                "null": false
+            }
+        }
+    }
+}
