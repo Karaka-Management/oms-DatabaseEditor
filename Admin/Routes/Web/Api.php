@@ -16,6 +16,15 @@ return [
                 'state'  => PermissionState::DATABASE_EDITOR,
             ],
         ],
+        [
+            'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiQueryCreate',
+            'verb'       => RouteVerb::PUT,
+            'permission' => [
+                'module' => ApiController::MODULE_NAME,
+                'type'   => PermissionType::READ,
+                'state'  => PermissionState::DATABASE_EDITOR,
+            ],
+        ],
     ],
     '^.*/dbeditor/connection.*$' => [
         [

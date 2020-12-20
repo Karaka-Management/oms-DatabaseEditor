@@ -5,7 +5,7 @@
         "type": 2,
         "subtype": 1,
         "name": "DBEditor",
-        "uri": "{/prefix}dbeditor/editor?{?}",
+        "uri": "{/prefix}dbeditor/list?{?}",
         "target": "self",
         "icon": null,
         "order": 70,
@@ -15,7 +15,22 @@
         "children": [
             {
                 "id": 1007402001,
-                "pid": "/dbeditor",
+                "pid": "/dbeditor/list",
+                "type": 3,
+                "subtype": 1,
+                "name": "Editor",
+                "uri": "{/prefix}dbeditor/list?{?}",
+                "target": "self",
+                "icon": null,
+                "order": 1,
+                "from": "DatabaseEditor",
+                "permission": { "permission": 2, "type": null, "element": null },
+                "parent": 1007401001,
+                "children": []
+            },
+            {
+                "id": 1007402002,
+                "pid": "/dbeditor/editor",
                 "type": 3,
                 "subtype": 1,
                 "name": "Editor",

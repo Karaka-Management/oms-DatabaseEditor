@@ -14,6 +14,9 @@ declare(strict_types=1);
 
 namespace Modules\DatabaseEditor\Controller;
 
+use Modules\Admin\Models\NullAccount;
+use Modules\DatabaseEditor\Models\Query;
+use Modules\DatabaseEditor\Models\QueryMapper;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\NotificationLevel;
@@ -49,6 +52,80 @@ use phpOMS\Message\ResponseAbstract;
  */
 final class ApiController extends Controller
 {
+    /**
+     * Api method for modifying settings
+     *
+     * @param RequestAbstract  $request  Request
+     * @param ResponseAbstract $response Response
+     * @param mixed            $data     Generic data
+     *
+     * @return void
+     *
+     * @api
+     *
+     * @since 1.0.0
+     */
+    public function apiQueryCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    {
+        if (!empty($val = $this->validateQueryCreate($request))) {
+            $response->set($request->uri->__toString(), new FormValidation($val));
+            $response->header->status = RequestStatusCode::R_400;
+
+            return;
+        }
+
+        $query = $this->createQueryFromRequest($request);
+        $this->createModel($request->header->account, $query, QueryMapper::class, 'query', $request->getOrigin());
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Query', 'Query successfully created.', $query);
+    }
+
+    /**
+     * Validate query create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool> Returns the validation array of the request
+     *
+     * @since 1.0.0
+     */
+    private function validateQueryCreate(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (($val['title'] = empty($request->getData('title')))
+            || ($val['type'] = empty($request->getData('type')))
+            || ($val['host'] = empty($request->getData('host')))
+            || ($val['db'] = empty($request->getData('db')))
+        ) {
+            return $val;
+        }
+
+        return [];
+    }
+
+    /**
+     * Method to create query from request.
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return Query Returns the created query from the request
+     *
+     * @since 1.0.0
+     */
+    private function createQueryFromRequest(RequestAbstract $request) : Query
+    {
+        $query         = new Query();
+        $query->title  = (string) ($request->getData('title') ?? '');
+        $query->type   = (string) ($request->getData('type') ?? '');
+        $query->host   = (string) ($request->getData('host') ?? '');
+        $query->port   = (string) ($request->getData('port') ?? '');
+        $query->db     = (string) ($request->getData('db') ?? '');
+        $query->query  = (string) ($request->getData('query') ?? '');
+        $query->result = (string) ($request->getData('result') ?? '');
+        $query->createdBy = new NullAccount($request->header->account);
+
+        return $query;
+    }
+
     /**
      * Api method for modifying settings
      *

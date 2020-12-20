@@ -20,10 +20,10 @@ echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-3">
-        <section class="box wf-100">
-            <div class="inner">
-                <form id="fDatabaseConnection" method="GET" action="<?= \phpOMS\Uri\UriFactory::build('{/api}dbeditor/editor?{?}&csrf={$CSRF}'); ?>">
-                    <table class="layout wf-100" style="table-layout: fixed">
+        <section class="portlet">
+            <form id="fDatabaseConnection" method="GET" action="<?= \phpOMS\Uri\UriFactory::build('{/api}dbeditor/editor?{?}&csrf={$CSRF}'); ?>">
+                <div class="portlet-body">
+                    <table class="layout wf-100">
                         <tbody>
                         <tr><td><label for="iDatabaseType"><?= $this->getHtml('DatabaseType'); ?></label>
                         <tr><td>
@@ -42,21 +42,26 @@ echo $this->getData('nav')->render(); ?>
                         <tr><td><input type="text" id="iLogin" name="login">
                         <tr><td><label for="iPassword"><?= $this->getHtml('Password'); ?></label>
                         <tr><td><input type="text" id="iPassword" name="password">
-                        <tr><td><input type="submit" value="<?= $this->getHtml('Test'); ?>">
                     </table>
-                </form>
-            </div>
+                </div>
+                <div class="portlet-foot"><input type="submit" value="<?= $this->getHtml('Test'); ?>"></div>
+            </form>
         </section>
     </div>
 
     <div class="col-xs-12 col-md-9">
-        <section class="box wf-100">
-            <div class="inner">
-                <table class="layout wf-100" style="table-layout: fixed">
+        <section class="portlet">
+            <div class="portlet-body">
+                <table class="layout wf-100">
                     <tbody>
-                    <tr><td><textarea style="height: 350px" form="fDatabaseConnection"></textarea>
-                    <tr><td><input form="fDatabaseConnection" type="submit" value="<?= $this->getHtml('Execute'); ?>">
+                    <tr><td><label for="iTitle"><?= $this->getHtml('Title'); ?></label>
+                    <tr><td><input id="iTitle" type="text">
+                    <tr><td><label for="iQuery"><?= $this->getHtml('Query'); ?></label>
+                    <tr><td><textarea id="iQuery" style="height: 300px" form="fDatabaseConnection"></textarea>
                 </table>
+            </div>
+            <div class="portlet-foot">
+                <input form="fDatabaseConnection" type="submit" value="<?= $this->getHtml('Execute'); ?>">
             </div>
         </section>
     </div>
@@ -73,30 +78,17 @@ echo $this->getData('nav')->render(); ?>
         <input type="radio" id="c-tab-1" name="tabular-2"<?= $this->request->uri->fragment === 'c-tab-1' ? ' checked' : ''; ?>>
         <div class="tab">
             <div class="row">
-                <div class="col-xs-12 col-md-3">
-                    <section class="box wf-100">
-                        <div class="inner">
-                            <div class="ipt-wrap">
-                                <div class="ipt-first">
-                                    <select id="iExport" name="type">
-                                        <option value="excel"><?= $this->getHtml('Excel'); ?>
-                                        <option value="csv"><?= $this->getHtml('CSV'); ?>
-                                        <option value="json"><?= $this->getHtml('JSON'); ?>
-                                    </select>
-                                </div>
-                                <div class="ipt-second"><button><?= $this->getHtml('Export'); ?></button></div>
-                            </div>
+                <div class="col-xs-12">
+                    <section class="portlet">
+                        <div class="portlet-head"><?= $this->getHtml('QueryResult'); ?> - <?= $this->getHtml('Limit1000'); ?><i class="fa fa-download floatRight download btn"></i></div>
+                        <div class="portlet-body">
+                            <table class="default">
+                            <thead>
+                            <tbody>
+                                <tr><td><?= $this->getHtml('NoResults'); ?>
+                            </table>
                         </div>
                     </section>
-                </div>
-
-                <div class="col-xs-12">
-                    <table class="default">
-                    <caption><?= $this->getHtml('QueryResult'); ?> - <?= $this->getHtml('Limit1000'); ?><i class="fa fa-download floatRight download btn"></i></caption>
-                    <thead>
-                    <tbody>
-                        <tr><td><?= $this->getHtml('NoResults'); ?>
-                    </table>
                 </div>
             </div>
         </div>
