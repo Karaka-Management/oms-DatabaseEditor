@@ -15,6 +15,7 @@ declare(strict_types=1);
 namespace Modules\DatabaseEditor\Models;
 
 use Modules\Admin\Models\Account;
+use Modules\Admin\Models\NullAccount;
 
 /**
  * Query.
@@ -26,6 +27,14 @@ use Modules\Admin\Models\Account;
  */
 class Query
 {
+    /**
+     * Query ID.
+     *
+     * @var int
+     * @since 1.0.0
+     */
+    protected int $id = 0;
+
     /**
      * Title
      *
@@ -88,7 +97,7 @@ class Query
      * @var Account
      * @since 1.0.0
      */
-    protected Account $createdBy;
+    public Account $createdBy;
 
     /**
      * Created.
@@ -107,5 +116,17 @@ class Query
     {
         $this->createdBy = new NullAccount();
         $this->createdAt = new \DateTimeImmutable('now');
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     *
+     * @since 1.0.0
+     */
+    public function getId() : int
+    {
+        return $this->id;
     }
 }

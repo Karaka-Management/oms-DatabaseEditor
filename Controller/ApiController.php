@@ -22,6 +22,8 @@ use phpOMS\DataStorage\Database\Query\Builder;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
+use phpOMS\Model\Message\FormValidation;
+use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Admin controller class.
@@ -94,7 +96,6 @@ final class ApiController extends Controller
         if (($val['title'] = empty($request->getData('title')))
             || ($val['type'] = empty($request->getData('type')))
             || ($val['host'] = empty($request->getData('host')))
-            || ($val['db'] = empty($request->getData('db')))
         ) {
             return $val;
         }
@@ -117,7 +118,7 @@ final class ApiController extends Controller
         $query->title  = (string) ($request->getData('title') ?? '');
         $query->type   = (string) ($request->getData('type') ?? '');
         $query->host   = (string) ($request->getData('host') ?? '');
-        $query->port   = (string) ($request->getData('port') ?? '');
+        $query->port   = (int) ($request->getData('port') ?? 0);
         $query->db     = (string) ($request->getData('db') ?? '');
         $query->query  = (string) ($request->getData('query') ?? '');
         $query->result = (string) ($request->getData('result') ?? '');

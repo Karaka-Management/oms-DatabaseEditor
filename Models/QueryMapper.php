@@ -75,4 +75,17 @@ final class QueryMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static string $primaryField = 'db_editor_query_id';
+
+    /**
+     * Belongs to.
+     *
+     * @var array<string, array{mapper:string, external:string}>
+     * @since 1.0.0
+     */
+    protected static array $belongsTo = [
+        'createdBy' => [
+            'mapper'     => AccountMapper::class,
+            'external'   => 'db_editor_query_created_at',
+        ],
+    ];
 }

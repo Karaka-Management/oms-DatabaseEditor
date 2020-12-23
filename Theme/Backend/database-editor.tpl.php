@@ -13,8 +13,10 @@
 declare(strict_types=1);
 
 use phpOMS\DataStorage\Database\DatabaseType;
+use phpOMS\Utils\IO\Csv\CsvSettings;
 
 $dbTypes = DatabaseType::getConstants();
+$query   = $this->getData('query') ?? new NullQuery();
 
 echo $this->getData('nav')->render(); ?>
 
@@ -33,11 +35,11 @@ echo $this->getData('nav')->render(); ?>
                                 <?php endforeach; ?>
                             </select>
                         <tr><td><label for="iHost"><?= $this->getHtml('Host'); ?></label>
-                        <tr><td><input type="text" id="iHost" name="host">
+                        <tr><td><input type="text" id="iHost" name="host" value="<?= $this->printHtml($query->host); ?>">
                         <tr><td><label for="iPort"><?= $this->getHtml('Port'); ?></label>
-                        <tr><td><input min="0" max="65536" type="number" id="iPort" name="port">
+                        <tr><td><input min="0" max="65536" type="number" id="iPort" name="port" value="<?= $query->port; ?>">
                         <tr><td><label for="iDatabase"><?= $this->getHtml('Database'); ?></label>
-                        <tr><td><input type="text" id="iDatabase" name="database">
+                        <tr><td><input type="text" id="iDatabase" name="database" value="<?= $this->printHtml($query->db); ?>">
                         <tr><td><label for="iLogin"><?= $this->getHtml('Login'); ?></label>
                         <tr><td><input type="text" id="iLogin" name="login">
                         <tr><td><label for="iPassword"><?= $this->getHtml('Password'); ?></label>
@@ -55,9 +57,9 @@ echo $this->getData('nav')->render(); ?>
                 <table class="layout wf-100">
                     <tbody>
                     <tr><td><label for="iTitle"><?= $this->getHtml('Title'); ?></label>
-                    <tr><td><input id="iTitle" type="text">
+                    <tr><td><input id="iTitle" type="text" value="<?= $this->printHtml($query->title); ?>">
                     <tr><td><label for="iQuery"><?= $this->getHtml('Query'); ?></label>
-                    <tr><td><textarea id="iQuery" style="height: 300px" form="fDatabaseConnection"></textarea>
+                    <tr><td><textarea id="iQuery" style="height: 300px" form="fDatabaseConnection"><?= $this->printHtml($query->query); ?></textarea>
                 </table>
             </div>
             <div class="portlet-foot">
@@ -81,13 +83,22 @@ echo $this->getData('nav')->render(); ?>
                 <div class="col-xs-12">
                     <section class="portlet">
                         <div class="portlet-head"><?= $this->getHtml('QueryResult'); ?> - <?= $this->getHtml('Limit1000'); ?><i class="fa fa-download floatRight download btn"></i></div>
-                        <div class="portlet-body">
-                            <table class="default">
-                            <thead>
-                            <tbody>
+                        <table class="default">
+                        <thead>
+                        <tbody>
+                            <?php if ($query->getId() !== 0) :
+                                $delim = CsvSettings::getStringDelimiter($query->result, 3);
+                                $lines = \explode("\n", $query->result);
+
+                                foreach ($lines as $data) : $line = \str_getcsv($data, $delim, '"'); ?>
+                                    <tr>
+                                    <?php foreach ($line as $cell) : ?>
+                                        <td><?= $this->printHtml($cell); ?>
+                                    <?php endforeach; ?>
+                            <?php endforeach; else : ?>
                                 <tr><td><?= $this->getHtml('NoResults'); ?>
-                            </table>
-                        </div>
+                            <?php endif; ?>
+                        </table>
                     </section>
                 </div>
             </div>

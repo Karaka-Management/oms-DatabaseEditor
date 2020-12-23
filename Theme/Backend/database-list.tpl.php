@@ -16,20 +16,20 @@ use phpOMS\query\queryStatus;
 use phpOMS\Uri\UriFactory;
 
 /**
- * @var \phpOMS\Views\View              $this
- * @var \Modules\Admin\Models\query[] $querys
+ * @var \phpOMS\Views\View            $this
+ * @var \Modules\Admin\Models\query[] $queries
  */
-$querys = $this->getData('querys') ?? [];
+$queries = $this->getData('queries') ?? [];
 
-$previous = empty($querys) ? '{/prefix}admin/query/list' : '{/prefix}admin/query/list?{?}&id=' . \reset($querys)->getId() . '&ptype=p';
-$next     = empty($querys) ? '{/prefix}admin/query/list' : '{/prefix}admin/query/list?{?}&id=' . \end($querys)->getId() . '&ptype=n';
+$previous = empty($querys) ? '{/prefix}dbeditor/editor/list' : '{/prefix}dbeditor/editor/list?{?}&id=' . \reset($querys)->getId() . '&ptype=p';
+$next     = empty($querys) ? '{/prefix}dbeditor/editor/list' : '{/prefix}dbeditor/editor/list?{?}&id=' . \end($querys)->getId() . '&ptype=n';
 
 echo $this->getData('nav')->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">
         <div class="portlet">
-            <div class="portlet-head"><?= $this->getHtml('querys'); ?><i class="fa fa-download floatRight download btn"></i></div>
+            <div class="portlet-head"><?= $this->getHtml('Querys'); ?><i class="fa fa-download floatRight download btn"></i></div>
             <table id="queryList" class="default">
                 <thead>
                 <tr>
@@ -39,9 +39,6 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('Title'); ?>
                         <input id="queryList-r2-asc" name="queryList-sort" type="radio"><label for="queryList-r2-asc"><i class="sort-asc fa fa-chevron-up"></i></label>
                         <input id="queryList-r2-desc" name="queryList-sort" type="radio"><label for="queryList-r2-desc"><i class="sort-desc fa fa-chevron-down"></i></label>
-                    <td class="wf-100"><?= $this->getHtml('Name'); ?>
-                        <input id="queryList-r3-asc" name="queryList-sort" type="radio"><label for="queryList-r3-asc"><i class="sort-asc fa fa-chevron-up"></i></label>
-                        <input id="queryList-r3-desc" name="queryList-sort" type="radio"><label for="queryList-r3-desc"><i class="sort-desc fa fa-chevron-down"></i></label>
                     <td><?= $this->getHtml('Creator'); ?>
                         <input id="queryList-r4-asc" name="queryList-sort" type="radio"><label for="queryList-r4-asc"><i class="sort-asc fa fa-chevron-up"></i></label>
                         <input id="queryList-r4-desc" name="queryList-sort" type="radio"><label for="queryList-r4-desc"><i class="sort-desc fa fa-chevron-down"></i></label>
@@ -49,19 +46,19 @@ echo $this->getData('nav')->render(); ?>
                         <input id="queryList-r5-asc" name="queryList-sort" type="radio"><label for="queryList-r5-asc"><i class="sort-asc fa fa-chevron-up"></i></label>
                         <input id="queryList-r5-desc" name="queryList-sort" type="radio"><label for="queryList-r5-desc"><i class="sort-desc fa fa-chevron-down"></i></label>
                     <tbody>
-                        <?php $c = 0; foreach ($querys as $key => $value) : ++$c;
-                        $url     = \phpOMS\Uri\UriFactory::build('{/prefix}admin/dbeditor/query?{?}&id=' . $value->getId());
+                        <?php $c = 0; foreach ($queries as $key => $value) : ++$c;
+                        $url     = \phpOMS\Uri\UriFactory::build('{/prefix}dbeditor/editor?{?}&id=' . $value->getId());
                         ?>
                 <tr tabindex="0" data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getHtml('ID', '0', '0'); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
-                    <td data-label="<?= $this->getHtml('Title'); ?>"><a href="<?= $url; ?>"><?= $this->getHtml('Name'. $value->getStatus()); ?></a>
+                    <td data-label="<?= $this->getHtml('Title'); ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->title); ?></a>
                     <td data-label="<?= $this->getHtml('Creator'); ?>"><a href="<?= $url; ?>"><?= $this->printHtml(
-                                \sprintf('%3$s %2$s %1$s', $value->account->name1, $value->account->name2, $value->account->name3)
+                                \sprintf('%3$s %2$s %1$s', $value->createdBy->name1, $value->createdBy->name2, $value->createdBy->name3)
                             ); ?></a>
                     <td data-label="<?= $this->getHtml('Created'); ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->createdAt->format('Y-m-d H:i:s')); ?></a>
                         <?php endforeach; ?>
                         <?php if ($c === 0) : ?>
-                            <tr><td colspan="3" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
+                            <tr><td colspan="4" class="empty"><?= $this->getHtml('Empty', '0', '0'); ?>
                         <?php endif; ?>
             </table>
             <div class="portlet-foot">
