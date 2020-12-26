@@ -114,14 +114,14 @@ final class ApiController extends Controller
      */
     private function createQueryFromRequest(RequestAbstract $request) : Query
     {
-        $query         = new Query();
-        $query->title  = (string) ($request->getData('title') ?? '');
-        $query->type   = (string) ($request->getData('type') ?? '');
-        $query->host   = (string) ($request->getData('host') ?? '');
-        $query->port   = (int) ($request->getData('port') ?? 0);
-        $query->db     = (string) ($request->getData('db') ?? '');
-        $query->query  = (string) ($request->getData('query') ?? '');
-        $query->result = (string) ($request->getData('result') ?? '');
+        $query            = new Query();
+        $query->title     = (string) ($request->getData('title') ?? '');
+        $query->type      = (string) ($request->getData('type') ?? '');
+        $query->host      = (string) ($request->getData('host') ?? '');
+        $query->port      = (int) ($request->getData('port') ?? 0);
+        $query->db        = (string) ($request->getData('db') ?? '');
+        $query->query     = (string) ($request->getData('query') ?? '');
+        $query->result    = (string) ($request->getData('result') ?? '');
         $query->createdBy = new NullAccount($request->header->account);
 
         return $query;
