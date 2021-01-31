@@ -36,7 +36,7 @@ echo $this->getData('nav')->render(); ?>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
                         <input id="queryList-r1-asc" name="queryList-sort" type="radio"><label for="queryList-r1-asc"><i class="sort-asc fa fa-chevron-up"></i></label>
                         <input id="queryList-r1-desc" name="queryList-sort" type="radio"><label for="queryList-r1-desc"><i class="sort-desc fa fa-chevron-down"></i></label>
-                    <td><?= $this->getHtml('Title'); ?>
+                    <td class="wf-100"><?= $this->getHtml('Title'); ?>
                         <input id="queryList-r2-asc" name="queryList-sort" type="radio"><label for="queryList-r2-asc"><i class="sort-asc fa fa-chevron-up"></i></label>
                         <input id="queryList-r2-desc" name="queryList-sort" type="radio"><label for="queryList-r2-desc"><i class="sort-desc fa fa-chevron-down"></i></label>
                     <td><?= $this->getHtml('Creator'); ?>
