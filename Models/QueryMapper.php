@@ -15,13 +15,7 @@ declare(strict_types=1);
 namespace Modules\DatabaseEditor\Models;
 
 use Modules\Admin\Models\AccountMapper;
-use Modules\Calendar\Models\ScheduleMapper;
-use Modules\Media\Models\MediaMapper;
-use Modules\Tag\Models\TagMapper;
 use phpOMS\DataStorage\Database\DataMapperAbstract;
-use phpOMS\DataStorage\Database\Query\Builder;
-use phpOMS\DataStorage\Database\Query\Where;
-use phpOMS\DataStorage\Database\RelationType;
 
 /**
  * Mapper class.
@@ -40,16 +34,16 @@ final class QueryMapper extends DataMapperAbstract
      * @since 1.0.0
      */
     protected static array $columns = [
-        'db_editor_query_id'         => ['name' => 'db_editor_query_id',         'type' => 'int',      'internal' => 'id'],
-        'db_editor_query_title'      => ['name' => 'db_editor_query_title',      'type' => 'string',   'internal' => 'title'],
-        'db_editor_query_type'      => ['name' => 'db_editor_query_type',      'type' => 'string',   'internal' => 'type'],
-        'db_editor_query_host'      => ['name' => 'db_editor_query_host',      'type' => 'string',   'internal' => 'host'],
-        'db_editor_query_port'      => ['name' => 'db_editor_query_port',      'type' => 'int',   'internal' => 'port'],
-        'db_editor_query_db'      => ['name' => 'db_editor_query_db',      'type' => 'string',   'internal' => 'db'],
-        'db_editor_query_query'      => ['name' => 'db_editor_query_query',      'type' => 'string',   'internal' => 'query'],
+        'db_editor_query_id'          => ['name' => 'db_editor_query_id',         'type' => 'int',      'internal' => 'id'],
+        'db_editor_query_title'       => ['name' => 'db_editor_query_title',      'type' => 'string',   'internal' => 'title'],
+        'db_editor_query_type'        => ['name' => 'db_editor_query_type',      'type' => 'string',   'internal' => 'type'],
+        'db_editor_query_host'        => ['name' => 'db_editor_query_host',      'type' => 'string',   'internal' => 'host'],
+        'db_editor_query_port'        => ['name' => 'db_editor_query_port',      'type' => 'int',   'internal' => 'port'],
+        'db_editor_query_db'          => ['name' => 'db_editor_query_db',      'type' => 'string',   'internal' => 'db'],
+        'db_editor_query_query'       => ['name' => 'db_editor_query_query',      'type' => 'string',   'internal' => 'query'],
         'db_editor_query_result'      => ['name' => 'db_editor_query_result',      'type' => 'string',   'internal' => 'result'],
-        'db_editor_query_created_by' => ['name' => 'db_editor_query_created_by', 'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
-        'db_editor_query_created_at' => ['name' => 'db_editor_query_created_at', 'type' => 'DateTimeImmutable', 'internal' => 'createdAt', 'readonly' => true],
+        'db_editor_query_created_by'  => ['name' => 'db_editor_query_created_by', 'type' => 'int',      'internal' => 'createdBy', 'readonly' => true],
+        'db_editor_query_created_at'  => ['name' => 'db_editor_query_created_at', 'type' => 'DateTimeImmutable', 'internal' => 'createdAt', 'readonly' => true],
     ];
 
     /**

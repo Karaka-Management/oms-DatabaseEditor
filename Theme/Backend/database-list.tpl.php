@@ -12,7 +12,6 @@
  */
 declare(strict_types=1);
 
-use phpOMS\query\queryStatus;
 use phpOMS\Uri\UriFactory;
 
 /**

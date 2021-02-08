@@ -19,11 +19,11 @@ use Modules\DatabaseEditor\Models\Query;
 use Modules\DatabaseEditor\Models\QueryMapper;
 use phpOMS\DataStorage\Database\Connection\ConnectionFactory;
 use phpOMS\DataStorage\Database\Query\Builder;
+use phpOMS\Message\Http\RequestStatusCode;
 use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
-use phpOMS\Message\Http\RequestStatusCode;
 
 /**
  * Admin controller class.
