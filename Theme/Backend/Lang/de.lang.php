@@ -13,6 +13,8 @@ declare(strict_types=1);
 
 return ['DatabaseEditor' => [
     'CSV'          => '',
+    'Created'      => '',
+    'Creator'      => '',
     'Database'     => '',
     'DatabaseType' => '',
     'Excel'        => '',
@@ -27,9 +29,7 @@ return ['DatabaseEditor' => [
     'Port'         => '',
     'Query'        => '',
     'QueryResult'  => '',
+    'Querys'       => '',
     'Test'         => '',
     'Title'        => '',
-    'Querys'       => '',
-    'Creator'      => '',
-    'Created'      => '',
 ]];
