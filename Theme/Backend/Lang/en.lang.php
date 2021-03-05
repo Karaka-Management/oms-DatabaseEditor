@@ -4,6 +4,7 @@
  *
  * PHP Version 8.0
  *
+ * @package   Modules\Localization
  * @copyright Dennis Eichhorn
  * @license   OMS License 1.0
  * @version   1.0.0
@@ -13,8 +14,8 @@ declare(strict_types=1);
 
 return ['DatabaseEditor' => [
     'CSV'          => 'CSV',
-    'Created'      => '',
-    'Creator'      => '',
+    'Created'      => 'Created',
+    'Creator'      => 'Creator',
     'Database'     => 'Database',
     'DatabaseType' => 'Database Type',
     'Excel'        => 'Excel',
@@ -29,7 +30,7 @@ return ['DatabaseEditor' => [
     'Port'         => 'Port',
     'Query'        => 'Query',
     'QueryResult'  => 'Query Result',
-    'Querys'       => '',
+    'Querys'       => 'Queries',
     'Test'         => 'Test',
-    'Title'        => '',
+    'Title'        => 'Title',
 ]];
