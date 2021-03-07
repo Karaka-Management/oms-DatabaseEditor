@@ -33,17 +33,53 @@ echo $this->getData('nav')->render(); ?>
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
-                        <input id="queryList-r1-asc" name="queryList-sort" type="radio"><label for="queryList-r1-asc"><i class="sort-asc fa fa-chevron-up"></i></label>
-                        <input id="queryList-r1-desc" name="queryList-sort" type="radio"><label for="queryList-r1-desc"><i class="sort-desc fa fa-chevron-down"></i></label>
+                        <label for="queryList-sort-1">
+                            <input type="radio" name="queryList-sort" id="queryList-sort-1">
+                            <i class="sort-asc fa fa-chevron-up"></i>
+                        </label>
+                        <label for="queryList-sort-2">
+                            <input type="radio" name="queryList-sort" id="queryList-sort-2">
+                             <i class="sort-desc fa fa-chevron-down"></i>
+                        </label>
+                        <label>
+                            <i class="filter fa fa-filter"></i>
+                        </label>
                     <td class="wf-100"><?= $this->getHtml('Title'); ?>
-                        <input id="queryList-r2-asc" name="queryList-sort" type="radio"><label for="queryList-r2-asc"><i class="sort-asc fa fa-chevron-up"></i></label>
-                        <input id="queryList-r2-desc" name="queryList-sort" type="radio"><label for="queryList-r2-desc"><i class="sort-desc fa fa-chevron-down"></i></label>
+                        <label for="queryList-sort-3">
+                            <input type="radio" name="queryList-sort" id="queryList-sort-3">
+                            <i class="sort-asc fa fa-chevron-up"></i>
+                        </label>
+                        <label for="queryList-sort-4">
+                            <input type="radio" name="queryList-sort" id="queryList-sort-4">
+                             <i class="sort-desc fa fa-chevron-down"></i>
+                        </label>
+                        <label>
+                            <i class="filter fa fa-filter"></i>
+                        </label>
                     <td><?= $this->getHtml('Creator'); ?>
-                        <input id="queryList-r4-asc" name="queryList-sort" type="radio"><label for="queryList-r4-asc"><i class="sort-asc fa fa-chevron-up"></i></label>
-                        <input id="queryList-r4-desc" name="queryList-sort" type="radio"><label for="queryList-r4-desc"><i class="sort-desc fa fa-chevron-down"></i></label>
+                        <label for="queryList-sort-5">
+                            <input type="radio" name="queryList-sort" id="queryList-sort-5">
+                            <i class="sort-asc fa fa-chevron-up"></i>
+                        </label>
+                        <label for="queryList-sort-6">
+                            <input type="radio" name="queryList-sort" id="queryList-sort-6">
+                             <i class="sort-desc fa fa-chevron-down"></i>
+                        </label>
+                        <label>
+                            <i class="filter fa fa-filter"></i>
+                        </label>
                     <td><?= $this->getHtml('Created'); ?>
-                        <input id="queryList-r5-asc" name="queryList-sort" type="radio"><label for="queryList-r5-asc"><i class="sort-asc fa fa-chevron-up"></i></label>
-                        <input id="queryList-r5-desc" name="queryList-sort" type="radio"><label for="queryList-r5-desc"><i class="sort-desc fa fa-chevron-down"></i></label>
+                        <label for="queryList-sort-7">
+                            <input type="radio" name="queryList-sort" id="queryList-sort-7">
+                            <i class="sort-asc fa fa-chevron-up"></i>
+                        </label>
+                        <label for="queryList-sort-8">
+                            <input type="radio" name="queryList-sort" id="queryList-sort-8">
+                             <i class="sort-desc fa fa-chevron-down"></i>
+                        </label>
+                        <label>
+                            <i class="filter fa fa-filter"></i>
+                        </label>
                     <tbody>
                         <?php $c = 0; foreach ($queries as $key => $value) : ++$c;
                         $url     = \phpOMS\Uri\UriFactory::build('{/prefix}dbeditor/editor?{?}&id=' . $value->getId());
