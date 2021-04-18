@@ -29,7 +29,7 @@ echo $this->getData('nav')->render(); ?>
     <div class="col-xs-12">
         <div class="portlet">
             <div class="portlet-head"><?= $this->getHtml('Querys'); ?><i class="fa fa-download floatRight download btn"></i></div>
-            <table id="queryList" class="default">
+            <table id="queryList" class="default sticky">
                 <thead>
                 <tr>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
