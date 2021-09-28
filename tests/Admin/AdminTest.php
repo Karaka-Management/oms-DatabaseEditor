@@ -19,7 +19,7 @@ namespace Modules\DatabaseEditor\tests\Admin;
  */
 class AdminTest extends \PHPUnit\Framework\TestCase
 {
-    protected const MODULE_NAME = 'DatabaseEditor';
+    protected const NAME = 'DatabaseEditor';
 
     protected const URI_LOAD = '';
 

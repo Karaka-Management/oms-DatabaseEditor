@@ -23,7 +23,7 @@ return [
             'dest'       => '\Modules\DatabaseEditor\Controller\BackendController:viewDatabaseEditorList',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::DATABASE_EDITOR,
             ],
@@ -34,7 +34,7 @@ return [
             'dest'       => '\Modules\DatabaseEditor\Controller\BackendController:viewDatabaseEditorEditor',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => BackendController::MODULE_NAME,
+                'module' => BackendController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::DATABASE_EDITOR,
             ],

@@ -23,7 +23,7 @@ return [
             'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiQueryExecute',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => ApiController::MODULE_NAME,
+                'module' => ApiController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::DATABASE_EDITOR,
             ],
@@ -32,7 +32,7 @@ return [
             'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiQueryCreate',
             'verb'       => RouteVerb::PUT,
             'permission' => [
-                'module' => ApiController::MODULE_NAME,
+                'module' => ApiController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::DATABASE_EDITOR,
             ],
@@ -43,7 +43,7 @@ return [
             'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiConnectionTest',
             'verb'       => RouteVerb::GET,
             'permission' => [
-                'module' => ApiController::MODULE_NAME,
+                'module' => ApiController::NAME,
                 'type'   => PermissionType::READ,
                 'state'  => PermissionState::DATABASE_EDITOR,
             ],
