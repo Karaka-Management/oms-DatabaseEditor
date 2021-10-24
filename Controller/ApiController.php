@@ -24,6 +24,7 @@ use phpOMS\Message\NotificationLevel;
 use phpOMS\Message\RequestAbstract;
 use phpOMS\Message\ResponseAbstract;
 use phpOMS\Model\Message\FormValidation;
+use phpOMS\DataStorage\Database\DatabaseStatus;
 
 /**
  * Admin controller class.
@@ -78,7 +79,7 @@ final class ApiController extends Controller
         $val = [];
         if (($val['title'] = empty($request->getData('title')))
             || ($val['type'] = empty($request->getData('type')))
-            || ($val['host'] = empty($request->getData('host')))
+            || ($val['database'] = empty($request->getData('database')))
         ) {
             return $val;
         }
@@ -102,7 +103,7 @@ final class ApiController extends Controller
         $query->type      = (string) ($request->getData('type') ?? '');
         $query->host      = (string) ($request->getData('host') ?? '');
         $query->port      = (int) ($request->getData('port') ?? 0);
-        $query->db        = (string) ($request->getData('db') ?? '');
+        $query->db        = (string) ($request->getData('database') ?? '');
         $query->query     = (string) ($request->getData('query') ?? '');
         $query->result    = (string) ($request->getData('result') ?? '');
         $query->createdBy = new NullAccount($request->header->account);
@@ -125,13 +126,50 @@ final class ApiController extends Controller
      */
     public function apiQueryExecute(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        if (!empty($val = $this->validateDatabaseConnection($request))) {
+            $response->set($request->uri->__toString(), new FormValidation($val));
+            $response->header->status = RequestStatusCode::R_400;
+
+            return;
+        }
+
         /** @var array{db:string, host:string, port:int, login:string, password:string, database:string} $config */
         $config  = $this->createDbConfigFromRequest($request);
         $con     = ConnectionFactory::create($config);
+        $con->connect();
+
+        if ($con->getStatus() !== DatabaseStatus::OK) {
+            $response->set($request->uri->__toString(), new FormValidation(['status' => $con->getStatus()]));
+            $response->header->status = RequestStatusCode::R_400;
+
+            return;
+        }
+
         $builder = new Builder($con);
         $builder->raw($request->getData('query') ?? '');
 
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Query', 'Query response', $builder->execute());
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Query', 'Query response', $builder->execute()->fetchAll());
+    }
+
+    /**
+     * Validate query create request
+     *
+     * @param RequestAbstract $request Request
+     *
+     * @return array<string, bool> Returns the validation array of the request
+     *
+     * @since 1.0.0
+     */
+    private function validateDatabaseConnection(RequestAbstract $request) : array
+    {
+        $val = [];
+        if (($val['type'] = empty($request->getData('type')))
+            || ($val['database'] = empty($request->getData('database')))
+        ) {
+            return $val;
+        }
+
+        return [];
     }
 
     /**
@@ -149,11 +187,20 @@ final class ApiController extends Controller
      */
     public function apiConnectionTest(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
     {
+        if (!empty($val = $this->validateDatabaseConnection($request))) {
+            $response->set($request->uri->__toString(), new FormValidation($val));
+            $response->header->status = RequestStatusCode::R_400;
+
+            return;
+        }
+
         /** @var array{db:string, host:string, port:int, login:string, password:string, database:string} $config */
         $config = $this->createDbConfigFromRequest($request);
         $con    = ConnectionFactory::create($config);
+        $con->connect();
 
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Query', 'Query response', $con->getStatus());
+        $isOk = $con->getStatus() === DatabaseStatus::OK;
+        $this->fillJsonResponse($request, $response, $isOk ? NotificationLevel::OK : NotificationLevel::ERROR, 'Query', 'Query response', $con->getStatus());
     }
 
     /**
