@@ -136,14 +136,14 @@ class Query
     public function toArray() : array
     {
         return [
-            'id'    => $this->id,
-            'title' => $this->title,
-            'type' => $this->type,
-            'host' => $this->host,
-            'port' => $this->port,
-            'db' => $this->db,
-            'query' => $this->query,
-            'result' => $this->result,
+            'id'        => $this->id,
+            'title'     => $this->title,
+            'type'      => $this->type,
+            'host'      => $this->host,
+            'port'      => $this->port,
+            'db'        => $this->db,
+            'query'     => $this->query,
+            'result'    => $this->result,
             'createdAt' => $this->createdAt,
         ];
     }

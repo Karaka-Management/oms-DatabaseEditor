@@ -56,12 +56,12 @@ final class QueryTest extends \PHPUnit\Framework\TestCase
      */
     public function testSerialize() : void
     {
-        $this->query->title = 'Test title';
-        $this->query->type = DatabaseType::SQLITE;
-        $this->query->host = '127.0.0.1';
-        $this->query->port = 2;
-        $this->query->db = 'test.sqlite';
-        $this->query->query = 'SELECT * FROM test';
+        $this->query->title  = 'Test title';
+        $this->query->type   = DatabaseType::SQLITE;
+        $this->query->host   = '127.0.0.1';
+        $this->query->port   = 2;
+        $this->query->db     = 'test.sqlite';
+        $this->query->query  = 'SELECT * FROM test';
         $this->query->result = 'Result';
 
         $result = $this->query->jsonSerialize();
@@ -69,13 +69,13 @@ final class QueryTest extends \PHPUnit\Framework\TestCase
 
         self::assertEquals(
             [
-                'id'    => 0,
-                'title' => 'Test title',
-                'type' => DatabaseType::SQLITE,
-                'host' => '127.0.0.1',
-                'port' => 2,
-                'db' => 'test.sqlite',
-                'query' => 'SELECT * FROM test',
+                'id'     => 0,
+                'title'  => 'Test title',
+                'type'   => DatabaseType::SQLITE,
+                'host'   => '127.0.0.1',
+                'port'   => 2,
+                'db'     => 'test.sqlite',
+                'query'  => 'SELECT * FROM test',
                 'result' => 'Result',
             ],
             $result
