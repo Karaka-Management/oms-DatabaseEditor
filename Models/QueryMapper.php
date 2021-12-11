@@ -15,7 +15,7 @@ declare(strict_types=1);
 namespace Modules\DatabaseEditor\Models;
 
 use Modules\Admin\Models\AccountMapper;
-use phpOMS\DataStorage\Database\DataMapperAbstract;
+use phpOMS\DataStorage\Database\Mapper\DataMapperFactory;
 
 /**
  * Mapper class.
@@ -25,7 +25,7 @@ use phpOMS\DataStorage\Database\DataMapperAbstract;
  * @link    https://orange-management.org
  * @since   1.0.0
  */
-final class QueryMapper extends DataMapperAbstract
+final class QueryMapper extends DataMapperFactory
 {
     /**
      * Columns.
@@ -33,7 +33,7 @@ final class QueryMapper extends DataMapperAbstract
      * @var array<string, array{name:string, type:string, internal:string, autocomplete?:bool, readonly?:bool, writeonly?:bool, annotations?:array}>
      * @since 1.0.0
      */
-    protected static array $columns = [
+    public const COLUMNS = [
         'db_editor_query_id'          => ['name' => 'db_editor_query_id',         'type' => 'int',      'internal' => 'id'],
         'db_editor_query_title'       => ['name' => 'db_editor_query_title',      'type' => 'string',   'internal' => 'title'],
         'db_editor_query_type'        => ['name' => 'db_editor_query_type',      'type' => 'string',   'internal' => 'type'],
@@ -52,7 +52,7 @@ final class QueryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $table = 'db_editor_query';
+    public const TABLE = 'db_editor_query';
 
     /**
      * Created at.
@@ -60,7 +60,7 @@ final class QueryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $createdAt = 'db_editor_query_created_at';
+    public const CREATED_AT = 'db_editor_query_created_at';
 
     /**
      * Primary field name.
@@ -68,7 +68,7 @@ final class QueryMapper extends DataMapperAbstract
      * @var string
      * @since 1.0.0
      */
-    protected static string $primaryField = 'db_editor_query_id';
+    public const PRIMARYFIELD ='db_editor_query_id';
 
     /**
      * Belongs to.
@@ -76,7 +76,7 @@ final class QueryMapper extends DataMapperAbstract
      * @var array<string, array{mapper:string, external:string}>
      * @since 1.0.0
      */
-    protected static array $belongsTo = [
+    public const BELONGS_TO = [
         'createdBy' => [
             'mapper'     => AccountMapper::class,
             'external'   => 'db_editor_query_created_at',

@@ -49,7 +49,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/DatabaseEditor/Theme/Backend/database-editor');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1007401001, $request, $response));
 
-        $query = QueryMapper::get((int) ($request->getData('id') ?? 0));
+        $query = QueryMapper::get()->where('id', (int) ($request->getData('id') ?? 0))->execute();
         $view->addData('query', $query);
 
         return $view;
@@ -94,7 +94,7 @@ final class BackendController extends Controller
         $view->setTemplate('/Modules/DatabaseEditor/Theme/Backend/database-list');
         $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1007401001, $request, $response));
 
-        $queries = QueryMapper::getAll();
+        $queries = QueryMapper::getAll()->execute();
         $view->addData('queries', $queries);
 
         return $view;
