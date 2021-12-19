@@ -134,8 +134,8 @@ final class ApiController extends Controller
         }
 
         /** @var array{db:string, host:string, port:int, login:string, password:string, database:string} $config */
-        $config  = $this->createDbConfigFromRequest($request);
-        $con     = ConnectionFactory::create($config);
+        $config = $this->createDbConfigFromRequest($request);
+        $con    = ConnectionFactory::create($config);
         $con->connect();
 
         if ($con->getStatus() !== DatabaseStatus::OK) {

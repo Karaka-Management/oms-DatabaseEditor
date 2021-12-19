@@ -12,6 +12,7 @@
  */
 declare(strict_types=1);
 
+use Modules\DatabaseEditor\Models\NullQuery;
 use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\Utils\IO\Csv\CsvSettings;
 
