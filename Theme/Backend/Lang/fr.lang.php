@@ -13,8 +13,8 @@
 declare(strict_types=1);
 
 return ['DatabaseEditor' => [
-    'CSV'          => 'CSV',
-    'Created'      => 'Créé',
+    'CSV'          => 'Csv',
+    'Created'      => 'Établi',
     'Creator'      => 'Créateur',
     'Database'     => 'Base de données',
     'DatabaseType' => 'Type de base de données',
@@ -22,15 +22,15 @@ return ['DatabaseEditor' => [
     'Execute'      => 'Exécuter',
     'Export'       => 'Exportation',
     'Host'         => 'Héberger',
-    'JSON'         => 'JSON',
-    'Limit1000'    => 'limite 1000',
+    'JSON'         => 'Json',
+    'Limit1000'    => 'Limite 1000',
     'Login'        => 'Connexion',
     'NoResults'    => 'Aucun résultat',
     'Password'     => 'Mot de passe',
     'Port'         => 'Port',
-    'Query'        => 'Mettre en doute',
+    'Query'        => 'Requete',
     'QueryResult'  => 'Résultat de la requête',
-    'Querys'       => 'requêtes',
+    'Querys'       => 'Interrogation',
     'Test'         => 'Test',
     'Title'        => 'Titre',
 ]];

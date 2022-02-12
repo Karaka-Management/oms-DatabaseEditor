@@ -13,6 +13,6 @@
 declare(strict_types=1);
 
 return ['Navigation' => [
-    'DBEditor' => 'DBEditor',
-    'Editor'   => 'Editor',
+    'DBEditor' => 'Dbeditor.',
+    'Editor'   => 'Redaktør',
 ]];

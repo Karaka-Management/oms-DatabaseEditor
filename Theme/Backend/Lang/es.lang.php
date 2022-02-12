@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 return ['DatabaseEditor' => [
-    'CSV'          => 'CSV',
+    'CSV'          => 'Csv',
     'Created'      => 'Creado',
     'Creator'      => 'Creador',
     'Database'     => 'Base de datos',
@@ -23,14 +23,14 @@ return ['DatabaseEditor' => [
     'Export'       => 'Exportar',
     'Host'         => 'Anfitrión',
     'JSON'         => 'JSON',
-    'Limit1000'    => 'límite 1000',
+    'Limit1000'    => 'Límite de 1000',
     'Login'        => 'Acceso',
     'NoResults'    => 'No hay resultados',
     'Password'     => 'Contraseña',
     'Port'         => 'Puerto',
     'Query'        => 'Consulta',
     'QueryResult'  => 'Resultado de la consulta',
-    'Querys'       => 'consultas',
+    'Querys'       => 'Consultas',
     'Test'         => 'Prueba',
     'Title'        => 'Título',
 ]];

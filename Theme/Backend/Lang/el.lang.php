@@ -13,8 +13,8 @@
 declare(strict_types=1);
 
 return ['DatabaseEditor' => [
-    'CSV'          => 'CSV',
-    'Created'      => 'δημιουργήθηκε',
+    'CSV'          => 'Csv',
+    'Created'      => 'Δημιουργήθηκε',
     'Creator'      => 'Δημιουργός',
     'Database'     => 'Βάση δεδομένων',
     'DatabaseType' => 'Τύπος βάσης δεδομένων',
@@ -22,15 +22,15 @@ return ['DatabaseEditor' => [
     'Execute'      => 'Εκτέλεση',
     'Export'       => 'Εξαγωγή',
     'Host'         => 'Πλήθος',
-    'JSON'         => 'JSON',
-    'Limit1000'    => 'όριο 1000',
+    'JSON'         => 'Τσούλα',
+    'Limit1000'    => 'Όριο 1000',
     'Login'        => 'Σύνδεση',
     'NoResults'    => 'Χωρίς αποτέλεσμα',
     'Password'     => 'Κωδικός πρόσβασης',
     'Port'         => 'Λιμάνι',
     'Query'        => 'Ερώτηση',
-    'QueryResult'  => 'ερώτημα Αποτέλεσμα',
-    'Querys'       => 'ερωτήματα',
+    'QueryResult'  => 'Ρώτιδα',
+    'Querys'       => 'Ερωτήματα',
     'Test'         => 'Δοκιμή',
     'Title'        => 'Τίτλος',
 ]];
