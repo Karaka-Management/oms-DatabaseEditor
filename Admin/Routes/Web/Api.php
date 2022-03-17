@@ -13,7 +13,7 @@
 declare(strict_types=1);
 
 use Modules\DatabaseEditor\Controller\ApiController;
-use Modules\DatabaseEditor\Models\PermissionState;
+use Modules\DatabaseEditor\Models\PermissionCategory;
 use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
@@ -25,7 +25,7 @@ return [
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::READ,
-                'state'  => PermissionState::DATABASE_EDITOR,
+                'state'  => PermissionCategory::DATABASE_EDITOR,
             ],
         ],
         [
@@ -34,7 +34,7 @@ return [
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::READ,
-                'state'  => PermissionState::DATABASE_EDITOR,
+                'state'  => PermissionCategory::DATABASE_EDITOR,
             ],
         ],
     ],
@@ -45,7 +45,7 @@ return [
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::READ,
-                'state'  => PermissionState::DATABASE_EDITOR,
+                'state'  => PermissionCategory::DATABASE_EDITOR,
             ],
         ],
     ],
