@@ -51,7 +51,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiQueryCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiQueryCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateQueryCreate($request))) {
             $response->set($request->uri->__toString(), new FormValidation($val));
@@ -124,7 +124,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiQueryExecute(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiQueryExecute(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateDatabaseConnection($request))) {
             $response->set($request->uri->__toString(), new FormValidation($val));
@@ -185,7 +185,7 @@ final class ApiController extends Controller
      *
      * @since 1.0.0
      */
-    public function apiConnectionTest(RequestAbstract $request, ResponseAbstract $response, $data = null) : void
+    public function apiConnectionTest(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateDatabaseConnection($request))) {
             $response->set($request->uri->__toString(), new FormValidation($val));

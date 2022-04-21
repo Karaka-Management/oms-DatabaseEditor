@@ -43,7 +43,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDatabaseEditorEditor(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDatabaseEditorEditor(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/DatabaseEditor/Theme/Backend/database-editor');
@@ -67,7 +67,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDatabaseEditorCreate(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDatabaseEditorCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/DatabaseEditor/Theme/Backend/database-editor');
@@ -88,7 +88,7 @@ final class BackendController extends Controller
      * @since 1.0.0
      * @codeCoverageIgnore
      */
-    public function viewDatabaseEditorList(RequestAbstract $request, ResponseAbstract $response, $data = null) : RenderableInterface
+    public function viewDatabaseEditorList(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : RenderableInterface
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/DatabaseEditor/Theme/Backend/database-list');
