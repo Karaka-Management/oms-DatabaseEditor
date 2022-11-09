@@ -20,8 +20,8 @@ use phpOMS\Uri\UriFactory;
  */
 $queries = $this->getData('queries') ?? [];
 
-$previous = empty($querys) ? '{/prefix}dbeditor/editor/list' : '{/prefix}dbeditor/editor/list?{?}&id=' . \reset($querys)->getId() . '&ptype=p';
-$next     = empty($querys) ? '{/prefix}dbeditor/editor/list' : '{/prefix}dbeditor/editor/list?{?}&id=' . \end($querys)->getId() . '&ptype=n';
+$previous = empty($querys) ? 'dbeditor/editor/list' : 'dbeditor/editor/list?{?}&id=' . \reset($querys)->getId() . '&ptype=p';
+$next     = empty($querys) ? 'dbeditor/editor/list' : 'dbeditor/editor/list?{?}&id=' . \end($querys)->getId() . '&ptype=n';
 
 echo $this->getData('nav')->render(); ?>
 
@@ -83,7 +83,7 @@ echo $this->getData('nav')->render(); ?>
                         </label>
                     <tbody>
                         <?php $c = 0; foreach ($queries as $key => $value) : ++$c;
-                        $url     = \phpOMS\Uri\UriFactory::build('{/prefix}dbeditor/editor?{?}&id=' . $value->getId());
+                        $url     = \phpOMS\Uri\UriFactory::build('dbeditor/editor?{?}&id=' . $value->getId());
                         ?>
                 <tr tabindex="0" data-href="<?= $url; ?>">
                     <td data-label="<?= $this->getHtml('ID', '0', '0'); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
