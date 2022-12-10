@@ -20,8 +20,8 @@ use phpOMS\Uri\UriFactory;
  */
 $queries = $this->getData('queries') ?? [];
 
-$previous = empty($querys) ? 'dbeditor/editor/list' : 'dbeditor/editor/list?{?}&id=' . \reset($querys)->getId() . '&ptype=p';
-$next     = empty($querys) ? 'dbeditor/editor/list' : 'dbeditor/editor/list?{?}&id=' . \end($querys)->getId() . '&ptype=n';
+$previous = empty($querys) ? 'dbeditor/editor/list' : '{/lang}/{/app}/dbeditor/editor/list?{?}&id=' . \reset($querys)->getId() . '&ptype=p';
+$next     = empty($querys) ? 'dbeditor/editor/list' : '{/lang}/{/app}/dbeditor/editor/list?{?}&id=' . \end($querys)->getId() . '&ptype=n';
 
 echo $this->getData('nav')->render(); ?>
 
