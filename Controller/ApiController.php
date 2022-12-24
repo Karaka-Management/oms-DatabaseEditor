@@ -148,7 +148,7 @@ final class ApiController extends Controller
         $builder = new Builder($con);
         $builder->raw($request->getData('query') ?? '');
 
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Query', 'Query response', $builder->execute()->fetchAll());
+        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Query', 'Query response', $builder->execute()?->fetchAll());
     }
 
     /**
