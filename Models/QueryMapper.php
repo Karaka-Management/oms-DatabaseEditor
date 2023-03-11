@@ -68,7 +68,7 @@ final class QueryMapper extends DataMapperFactory
      * @var string
      * @since 1.0.0
      */
-    public const PRIMARYFIELD ='db_editor_query_id';
+    public const PRIMARYFIELD = 'db_editor_query_id';
 
     /**
      * Belongs to.
