@@ -6,7 +6,7 @@
  *
  * @package   Modules\Admin
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -32,7 +32,7 @@ use phpOMS\Model\Message\FormValidation;
  * This class is responsible for the basic admin activities such as managing accounts, groups, permissions and modules.
  *
  * @package Modules\Admin
- * @license OMS License 1.0
+ * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
  */
@@ -99,13 +99,13 @@ final class ApiController extends Controller
     private function createQueryFromRequest(RequestAbstract $request) : Query
     {
         $query            = new Query();
-        $query->title     = (string) ($request->getData('title') ?? '');
-        $query->type      = (string) ($request->getData('type') ?? '');
-        $query->host      = (string) ($request->getData('host') ?? '');
-        $query->port      = (int) ($request->getData('port') ?? 0);
-        $query->db        = (string) ($request->getData('database') ?? '');
-        $query->query     = (string) ($request->getData('query') ?? '');
-        $query->result    = (string) ($request->getData('result') ?? '');
+        $query->title     = $request->getDataString('title') ?? '';
+        $query->type      = $request->getDataString('type') ?? '';
+        $query->host      = $request->getDataString('host') ?? '';
+        $query->port      = $request->getDataInt('port') ?? 0;
+        $query->db        = $request->getDataString('database') ?? '';
+        $query->query     = $request->getDataString('query') ?? '';
+        $query->result    = $request->getDataString('result') ?? '';
         $query->createdBy = new NullAccount($request->header->account);
 
         return $query;
@@ -146,7 +146,7 @@ final class ApiController extends Controller
         }
 
         $builder = new Builder($con);
-        $builder->raw($request->getData('query') ?? '');
+        $builder->raw($request->getDataString('query') ?? '');
 
         $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Query', 'Query response', $builder->execute()?->fetchAll());
     }
@@ -215,12 +215,12 @@ final class ApiController extends Controller
     private function createDbConfigFromRequest(RequestAbstract $request) : array
     {
         return [
-            'db'       => $request->getData('type') ?? '',
-            'host'     => $request->getData('host') ?? '',
-            'port'     => $request->getData('port') ?? '',
-            'database' => $request->getData('database') ?? '',
-            'login'    => $request->getData('login') ?? '',
-            'password' => $request->getData('password') ?? '',
+            'db'       => $request->getDataString('type') ?? '',
+            'host'     => $request->getDataString('host') ?? '',
+            'port'     => $request->getDataString('port') ?? '',
+            'database' => $request->getDataString('database') ?? '',
+            'login'    => $request->getDataString('user') ?? '',
+            'password' => $request->getDataString('password') ?? '',
         ];
     }
 }

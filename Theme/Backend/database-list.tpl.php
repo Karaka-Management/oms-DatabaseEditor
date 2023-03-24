@@ -6,7 +6,7 @@
  *
  * @package   Modules\Admin\Template\Backend
  * @copyright Dennis Eichhorn
- * @license   OMS License 1.0
+ * @license   OMS License 2.0
  * @version   1.0.0
  * @link      https://jingga.app
  */
@@ -20,8 +20,8 @@ use phpOMS\Uri\UriFactory;
  */
 $queries = $this->getData('queries') ?? [];
 
-$previous = empty($querys) ? 'dbeditor/editor/list' : '{/lang}/{/app}/dbeditor/editor/list?{?}&id=' . \reset($querys)->getId() . '&ptype=p';
-$next     = empty($querys) ? 'dbeditor/editor/list' : '{/lang}/{/app}/dbeditor/editor/list?{?}&id=' . \end($querys)->getId() . '&ptype=n';
+$previous = empty($querys) ? 'dbeditor/editor/list' : '{/base}/dbeditor/editor/list?{?}&id=' . \reset($querys)->getId() . '&ptype=p';
+$next     = empty($querys) ? 'dbeditor/editor/list' : '{/base}/dbeditor/editor/list?{?}&id=' . \end($querys)->getId() . '&ptype=n';
 
 echo $this->getData('nav')->render(); ?>
 
