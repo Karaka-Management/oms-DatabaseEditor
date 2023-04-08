@@ -77,9 +77,9 @@ final class ApiController extends Controller
     private function validateQueryCreate(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['title'] = empty($request->getData('title')))
-            || ($val['type'] = empty($request->getData('type')))
-            || ($val['database'] = empty($request->getData('database')))
+        if (($val['title'] = !$request->hasData('title'))
+            || ($val['type'] = !$request->hasData('type'))
+            || ($val['database'] = !$request->hasData('database'))
         ) {
             return $val;
         }
@@ -163,8 +163,8 @@ final class ApiController extends Controller
     private function validateDatabaseConnection(RequestAbstract $request) : array
     {
         $val = [];
-        if (($val['type'] = empty($request->getData('type')))
-            || ($val['database'] = empty($request->getData('database')))
+        if (($val['type'] = !$request->hasData('type'))
+            || ($val['database'] = !$request->hasData('database'))
         ) {
             return $val;
         }
