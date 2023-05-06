@@ -87,7 +87,7 @@ echo $this->getData('nav')->render(); ?>
                         <table class="default">
                         <thead>
                         <tbody>
-                            <?php if ($query->getId() !== 0) :
+                            <?php if ($query->id !== 0) :
                                 $delim = CsvSettings::getStringDelimiter($query->result, 3);
                                 $lines = \explode("\n", $query->result);
 

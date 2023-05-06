@@ -20,8 +20,8 @@ use phpOMS\Uri\UriFactory;
  */
 $queries = $this->getData('queries') ?? [];
 
-$previous = empty($querys) ? 'dbeditor/editor/list' : '{/base}/dbeditor/editor/list?{?}&id=' . \reset($querys)->getId() . '&ptype=p';
-$next     = empty($querys) ? 'dbeditor/editor/list' : '{/base}/dbeditor/editor/list?{?}&id=' . \end($querys)->getId() . '&ptype=n';
+$previous = empty($querys) ? 'dbeditor/editor/list' : '{/base}/dbeditor/editor/list?{?}&id=' . \reset($querys)->id . '&ptype=p';
+$next     = empty($querys) ? 'dbeditor/editor/list' : '{/base}/dbeditor/editor/list?{?}&id=' . \end($querys)->id . '&ptype=n';
 
 echo $this->getData('nav')->render(); ?>
 
@@ -83,10 +83,10 @@ echo $this->getData('nav')->render(); ?>
                         </label>
                     <tbody>
                         <?php $c = 0; foreach ($queries as $key => $value) : ++$c;
-                        $url     = \phpOMS\Uri\UriFactory::build('dbeditor/editor?{?}&id=' . $value->getId());
+                        $url     = \phpOMS\Uri\UriFactory::build('dbeditor/editor?{?}&id=' . $value->id);
                         ?>
                 <tr tabindex="0" data-href="<?= $url; ?>">
-                    <td data-label="<?= $this->getHtml('ID', '0', '0'); ?>"><a href="<?= $url; ?>"><?= $value->getId(); ?></a>
+                    <td data-label="<?= $this->getHtml('ID', '0', '0'); ?>"><a href="<?= $url; ?>"><?= $value->id; ?></a>
                     <td data-label="<?= $this->getHtml('Title'); ?>"><a href="<?= $url; ?>"><?= $this->printHtml($value->title); ?></a>
                     <td data-label="<?= $this->getHtml('Creator'); ?>"><a href="<?= $url; ?>"><?= $this->printHtml(
                                 \sprintf('%3$s %2$s %1$s', $value->createdBy->name1, $value->createdBy->name2, $value->createdBy->name3)

@@ -115,7 +115,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('result', "A;B;C;\nUS;USA;01\nDE;GER;49");
 
         $this->module->apiQueryCreate($request, $response);
-        self::assertGreaterThan(0, $response->get('')['response']->getId());
+        self::assertGreaterThan(0, $response->get('')['response']->id);
     }
 
     /**

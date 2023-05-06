@@ -38,7 +38,7 @@ final class QueryTest extends \PHPUnit\Framework\TestCase
      */
     public function testDefault() : void
     {
-        self::assertEquals(0, $this->query->getId());
+        self::assertEquals(0, $this->query->id);
         self::assertEquals('', $this->query->title);
         self::assertEquals('', $this->query->type);
         self::assertEquals('', $this->query->host);
