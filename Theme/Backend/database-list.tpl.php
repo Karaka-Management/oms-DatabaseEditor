@@ -18,12 +18,12 @@ use phpOMS\Uri\UriFactory;
  * @var \phpOMS\Views\View            $this
  * @var \Modules\Admin\Models\query[] $queries
  */
-$queries = $this->getData('queries') ?? [];
+$queries = $this->data['queries'] ?? [];
 
 $previous = empty($querys) ? 'dbeditor/editor/list' : '{/base}/dbeditor/editor/list?{?}&id=' . \reset($querys)->id . '&ptype=p';
 $next     = empty($querys) ? 'dbeditor/editor/list' : '{/base}/dbeditor/editor/list?{?}&id=' . \end($querys)->id . '&ptype=n';
 
-echo $this->getData('nav')->render(); ?>
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12">

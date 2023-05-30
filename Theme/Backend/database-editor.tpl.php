@@ -19,7 +19,7 @@ use phpOMS\Utils\IO\Csv\CsvSettings;
 $dbTypes = DatabaseType::getConstants();
 $query   = $this->getData('query') ?? new NullQuery();
 
-echo $this->getData('nav')->render(); ?>
+echo $this->data['nav']->render(); ?>
 
 <div class="row">
     <div class="col-xs-12 col-md-3">

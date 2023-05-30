@@ -47,10 +47,10 @@ final class BackendController extends Controller
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/DatabaseEditor/Theme/Backend/database-editor');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1007401001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1007401001, $request, $response);
 
         $query = QueryMapper::get()->where('id', $request->getDataInt('id') ?? 0)->execute();
-        $view->addData('query', $query);
+        $view->data['query'] = $query;
 
         return $view;
     }
@@ -71,7 +71,7 @@ final class BackendController extends Controller
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/DatabaseEditor/Theme/Backend/database-editor');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1007401001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1007401001, $request, $response);
 
         return $view;
     }
@@ -92,10 +92,10 @@ final class BackendController extends Controller
     {
         $view = new View($this->app->l11nManager, $request, $response);
         $view->setTemplate('/Modules/DatabaseEditor/Theme/Backend/database-list');
-        $view->addData('nav', $this->app->moduleManager->get('Navigation')->createNavigationMid(1007401001, $request, $response));
+        $view->data['nav'] = $this->app->moduleManager->get('Navigation')->createNavigationMid(1007401001, $request, $response);
 
         $queries = QueryMapper::getAll()->execute();
-        $view->addData('queries', $queries);
+        $view->data['queries'] = $queries;
 
         return $view;
     }
