@@ -55,7 +55,7 @@ final class ApiController extends Controller
     {
         if (!empty($val = $this->validateQueryCreate($request))) {
             $response->data[$request->uri->__toString()] = new FormValidation($val);
-            $response->header->status = RequestStatusCode::R_400;
+            $response->header->status                    = RequestStatusCode::R_400;
 
             return;
         }
@@ -128,7 +128,7 @@ final class ApiController extends Controller
     {
         if (!empty($val = $this->validateDatabaseConnection($request))) {
             $response->data[$request->uri->__toString()] = new FormValidation($val);
-            $response->header->status = RequestStatusCode::R_400;
+            $response->header->status                    = RequestStatusCode::R_400;
 
             return;
         }
@@ -189,7 +189,7 @@ final class ApiController extends Controller
     {
         if (!empty($val = $this->validateDatabaseConnection($request))) {
             $response->data[$request->uri->__toString()] = new FormValidation($val);
-            $response->header->status = RequestStatusCode::R_400;
+            $response->header->status                    = RequestStatusCode::R_400;
 
             return;
         }
