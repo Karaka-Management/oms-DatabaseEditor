@@ -54,15 +54,15 @@ final class ApiController extends Controller
     public function apiQueryCreate(RequestAbstract $request, ResponseAbstract $response, mixed $data = null) : void
     {
         if (!empty($val = $this->validateQueryCreate($request))) {
-            $response->data[$request->uri->__toString()] = new FormValidation($val);
-            $response->header->status                    = RequestStatusCode::R_400;
+            $response->header->status = RequestStatusCode::R_400;
+            $this->createInvalidCreateResponse($request, $response, $val);
 
             return;
         }
 
         $query = $this->createQueryFromRequest($request);
         $this->createModel($request->header->account, $query, QueryMapper::class, 'query', $request->getOrigin());
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Query', 'Query successfully created.', $query);
+        $this->createStandardCreateResponse($request, $response, $query);
     }
 
     /**
@@ -148,7 +148,7 @@ final class ApiController extends Controller
         $builder = new Builder($con);
         $builder->raw($request->getDataString('query') ?? '');
 
-        $this->fillJsonResponse($request, $response, NotificationLevel::OK, 'Query', 'Query response', $builder->execute()?->fetchAll());
+        $this->createStandardReturnResponse($request, $response, $builder->execute()?->fetchAll());
     }
 
     /**
