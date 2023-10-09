@@ -115,7 +115,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('result', "A;B;C;\nUS;USA;01\nDE;GER;49");
 
         $this->module->apiQueryCreate($request, $response);
-        self::assertGreaterThan(0, $response->get('')['response']->id);
+        self::assertGreaterThan(0, $response->getDataArray('')['response']->id);
     }
 
     /**
@@ -152,7 +152,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('password', '');
 
         $this->module->apiConnectionTest($request, $response);
-        self::assertEquals(DatabaseStatus::OK, $response->get('')['response']);
+        self::assertEquals(DatabaseStatus::OK, $response->getDataArray('')['response']);
     }
 
     /**
@@ -186,7 +186,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('database', __DIR__ . '/../../../../plization');
 
         $this->module->apiConnectionTest($request, $response);
-        self::assertGreaterThan(0, $response->get('')['response']);
+        self::assertGreaterThan(0, $response->getDataArray('')['response']);
     }
 
     /**
@@ -208,7 +208,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('password', '');
 
         $this->module->apiQueryExecute($request, $response);
-        self::assertGreaterThan(50, \count($response->get('')['response']));
+        self::assertGreaterThan(50, \count($response->getDataArray('')['response']));
     }
 
     /**
@@ -242,6 +242,6 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('database', __DIR__ . '/../../../../plization');
 
         $this->module->apiQueryExecute($request, $response);
-        self::assertGreaterThan(0, $response->get('')->toArray()['validation']['status']);
+        self::assertGreaterThan(0, $response->getData('')->toArray()['validation']['status']);
     }
 }
