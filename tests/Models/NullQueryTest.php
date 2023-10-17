@@ -47,6 +47,6 @@ final class NullQueryTest extends \PHPUnit\Framework\TestCase
     public function testJsonSerialize() : void
     {
         $null = new NullQuery(2);
-        self::assertEquals(['id' => 2], $null);
+        self::assertEquals(['id' => 2], $null->jsonSerialize());
     }
 }
