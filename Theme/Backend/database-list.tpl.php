@@ -28,7 +28,7 @@ echo $this->data['nav']->render(); ?>
 <div class="row">
     <div class="col-xs-12">
         <div class="portlet">
-            <div class="portlet-head"><?= $this->getHtml('Querys'); ?><i class="lni lni-download download btn end-xs"></i></div>
+            <div class="portlet-head"><?= $this->getHtml('Querys'); ?><i class="g-icon download btn end-xs">download</i></div>
             <div class="slider">
             <table id="queryList" class="default sticky">
                 <thead>
@@ -36,50 +36,50 @@ echo $this->data['nav']->render(); ?>
                     <td><?= $this->getHtml('ID', '0', '0'); ?>
                         <label for="queryList-sort-1">
                             <input type="radio" name="queryList-sort" id="queryList-sort-1">
-                            <i class="sort-asc fa fa-chevron-up"></i>
+                            <i class="sort-asc g-icon">expand_less</i>
                         </label>
                         <label for="queryList-sort-2">
                             <input type="radio" name="queryList-sort" id="queryList-sort-2">
-                            <i class="sort-desc fa fa-chevron-down"></i>
+                            <i class="sort-desc g-icon">expand_more</i>
                         </label>
                         <label>
-                            <i class="filter fa fa-filter"></i>
+                            <i class="filter g-icon">filter_alt</i>
                         </label>
                     <td class="wf-100"><?= $this->getHtml('Title'); ?>
                         <label for="queryList-sort-3">
                             <input type="radio" name="queryList-sort" id="queryList-sort-3">
-                            <i class="sort-asc fa fa-chevron-up"></i>
+                            <i class="sort-asc g-icon">expand_less</i>
                         </label>
                         <label for="queryList-sort-4">
                             <input type="radio" name="queryList-sort" id="queryList-sort-4">
-                            <i class="sort-desc fa fa-chevron-down"></i>
+                            <i class="sort-desc g-icon">expand_more</i>
                         </label>
                         <label>
-                            <i class="filter fa fa-filter"></i>
+                            <i class="filter g-icon">filter_alt</i>
                         </label>
                     <td><?= $this->getHtml('Creator'); ?>
                         <label for="queryList-sort-5">
                             <input type="radio" name="queryList-sort" id="queryList-sort-5">
-                            <i class="sort-asc fa fa-chevron-up"></i>
+                            <i class="sort-asc g-icon">expand_less</i>
                         </label>
                         <label for="queryList-sort-6">
                             <input type="radio" name="queryList-sort" id="queryList-sort-6">
-                            <i class="sort-desc fa fa-chevron-down"></i>
+                            <i class="sort-desc g-icon">expand_more</i>
                         </label>
                         <label>
-                            <i class="filter fa fa-filter"></i>
+                            <i class="filter g-icon">filter_alt</i>
                         </label>
                     <td><?= $this->getHtml('Created'); ?>
                         <label for="queryList-sort-7">
                             <input type="radio" name="queryList-sort" id="queryList-sort-7">
-                            <i class="sort-asc fa fa-chevron-up"></i>
+                            <i class="sort-asc g-icon">expand_less</i>
                         </label>
                         <label for="queryList-sort-8">
                             <input type="radio" name="queryList-sort" id="queryList-sort-8">
-                            <i class="sort-desc fa fa-chevron-down"></i>
+                            <i class="sort-desc g-icon">expand_more</i>
                         </label>
                         <label>
-                            <i class="filter fa fa-filter"></i>
+                            <i class="filter g-icon">filter_alt</i>
                         </label>
                     <tbody>
                         <?php $c = 0; foreach ($queries as $key => $value) : ++$c;
