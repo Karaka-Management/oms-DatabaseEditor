@@ -73,8 +73,8 @@ echo $this->data['nav']->render(); ?>
 <div class="tabview tab-2">
     <div class="box">
         <ul class="tab-links">
-            <li><label for="c-tab-1"><?= $this->getHtml('Query'); ?></label></li>
-            <li><label for="c-tab-2"><?= $this->getHtml('Database'); ?></label></li>
+            <li><label for="c-tab-1"><?= $this->getHtml('Query'); ?></label>
+            <li><label for="c-tab-2"><?= $this->getHtml('Database'); ?></label>
         </ul>
     </div>
     <div class="tab-content">
@@ -84,7 +84,7 @@ echo $this->data['nav']->render(); ?>
                 <div class="col-xs-12">
                     <section class="portlet">
                         <div class="portlet-head"><?= $this->getHtml('QueryResult'); ?> - <?= $this->getHtml('Limit1000'); ?><i class="g-icon download btn end-xs">download</i></div>
-                        <table class="default">
+                        <table class="default sticky">
                         <thead>
                         <tbody>
                             <?php if ($query->id !== 0) :
