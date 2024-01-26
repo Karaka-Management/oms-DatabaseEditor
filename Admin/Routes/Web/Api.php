@@ -18,7 +18,7 @@ use phpOMS\Account\PermissionType;
 use phpOMS\Router\RouteVerb;
 
 return [
-    '^.*/dbeditor/query.*$' => [
+    '^.*/dbeditor/query(\?.*$|$)' => [
         [
             'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiQueryExecute',
             'verb'       => RouteVerb::GET,
@@ -38,7 +38,7 @@ return [
             ],
         ],
     ],
-    '^.*/dbeditor/connection.*$' => [
+    '^.*/dbeditor/connection(\?.*$|$)' => [
         [
             'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiConnectionTest',
             'verb'       => RouteVerb::GET,
