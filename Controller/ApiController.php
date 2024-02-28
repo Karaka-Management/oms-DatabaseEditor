@@ -35,6 +35,9 @@ use phpOMS\Model\Message\FormValidation;
  * @license OMS License 2.0
  * @link    https://jingga.app
  * @since   1.0.0
+ *
+ * @todo Implement basic functionality / queries in UI
+ *      https://github.com/Karaka-Management/oms-DatabaseEditor/issues/2
  */
 final class ApiController extends Controller
 {
