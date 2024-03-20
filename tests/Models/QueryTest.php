@@ -20,6 +20,7 @@ use phpOMS\DataStorage\Database\DatabaseType;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\DatabaseEditor\Models\Query::class)]
 final class QueryTest extends \PHPUnit\Framework\TestCase
 {
     private Query $query;
@@ -32,10 +33,7 @@ final class QueryTest extends \PHPUnit\Framework\TestCase
         $this->query = new Query();
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Models\Query
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testDefault() : void
     {
         self::assertEquals(0, $this->query->id);
@@ -50,10 +48,7 @@ final class QueryTest extends \PHPUnit\Framework\TestCase
         self::assertInstanceOf('\DateTimeImmutable', $this->query->createdAt);
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Models\Query
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testSerialize() : void
     {
         $this->query->title  = 'Test title';

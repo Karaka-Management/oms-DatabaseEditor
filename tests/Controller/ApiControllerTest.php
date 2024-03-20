@@ -35,10 +35,10 @@ use phpOMS\Router\WebRouter;
 use phpOMS\Utils\TestUtils;
 
 /**
- * @testdox Modules\DatabaseEditor\tests\Controller\ApiControllerTest: DatabaseEditor api controller
- *
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\DatabaseEditor\Controller\ApiController::class)]
+#[\PHPUnit\Framework\Attributes\TestDox('Modules\DatabaseEditor\tests\Controller\ApiControllerTest: DatabaseEditor api controller')]
 final class ApiControllerTest extends \PHPUnit\Framework\TestCase
 {
     protected ApplicationAbstract $app;
@@ -93,10 +93,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         TestUtils::setMember($this->module, 'app', $this->app);
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiQueryCreate() : void
     {
         $response = new HttpResponse();
@@ -117,10 +114,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->getDataArray('')['response']->id);
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiQueryCreateInvalidData() : void
     {
         $response = new HttpResponse();
@@ -133,10 +127,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiQueryConnection() : void
     {
         $response = new HttpResponse();
@@ -154,10 +145,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(DatabaseStatus::OK, $response->getDataArray('')['response']);
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiQueryConnectionInvalidData() : void
     {
         $response = new HttpResponse();
@@ -170,10 +158,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiQueryConnectionInvalidConnection() : void
     {
         $response = new HttpResponse();
@@ -188,10 +173,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(0, $response->getDataArray('')['response']);
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiQueryExecute() : void
     {
         $response = new HttpResponse();
@@ -210,10 +192,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertGreaterThan(50, \count($response->getDataArray('')['response']));
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiQueryExecuteInvalidData() : void
     {
         $response = new HttpResponse();
@@ -226,10 +205,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         self::assertEquals(RequestStatusCode::R_400, $response->header->status);
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Controller\ApiController
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testApiQueryExecuteInvalidConnection() : void
     {
         $response = new HttpResponse();

@@ -19,31 +19,23 @@ use Modules\DatabaseEditor\Models\NullQuery;
 /**
  * @internal
  */
+#[\PHPUnit\Framework\Attributes\CoversClass(\Modules\DatabaseEditor\Models\NullQuery::class)]
 final class NullQueryTest extends \PHPUnit\Framework\TestCase
 {
-    /**
-     * @covers \Modules\DatabaseEditor\Models\NullQuery
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testNull() : void
     {
         self::assertInstanceOf('\Modules\DatabaseEditor\Models\Query', new NullQuery());
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Models\NullQuery
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testId() : void
     {
         $null = new NullQuery(2);
         self::assertEquals(2, $null->id);
     }
 
-    /**
-     * @covers \Modules\DatabaseEditor\Models\NullQuery
-     * @group module
-     */
+    #[\PHPUnit\Framework\Attributes\Group('module')]
     public function testJsonSerialize() : void
     {
         $null = new NullQuery(2);
