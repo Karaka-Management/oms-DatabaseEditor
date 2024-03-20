@@ -33,7 +33,7 @@ final class QueryTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Models\Query
+     * @covers \Modules\DatabaseEditor\Models\Query
      * @group module
      */
     public function testDefault() : void
@@ -51,7 +51,7 @@ final class QueryTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Models\Query
+     * @covers \Modules\DatabaseEditor\Models\Query
      * @group module
      */
     public function testSerialize() : void

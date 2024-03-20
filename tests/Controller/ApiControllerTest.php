@@ -94,7 +94,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Controller\ApiController
+     * @covers \Modules\DatabaseEditor\Controller\ApiController
      * @group module
      */
     public function testApiQueryCreate() : void
@@ -118,7 +118,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Controller\ApiController
+     * @covers \Modules\DatabaseEditor\Controller\ApiController
      * @group module
      */
     public function testApiQueryCreateInvalidData() : void
@@ -134,7 +134,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Controller\ApiController
+     * @covers \Modules\DatabaseEditor\Controller\ApiController
      * @group module
      */
     public function testApiQueryConnection() : void
@@ -155,7 +155,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Controller\ApiController
+     * @covers \Modules\DatabaseEditor\Controller\ApiController
      * @group module
      */
     public function testApiQueryConnectionInvalidData() : void
@@ -171,7 +171,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Controller\ApiController
+     * @covers \Modules\DatabaseEditor\Controller\ApiController
      * @group module
      */
     public function testApiQueryConnectionInvalidConnection() : void
@@ -189,7 +189,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Controller\ApiController
+     * @covers \Modules\DatabaseEditor\Controller\ApiController
      * @group module
      */
     public function testApiQueryExecute() : void
@@ -211,7 +211,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Controller\ApiController
+     * @covers \Modules\DatabaseEditor\Controller\ApiController
      * @group module
      */
     public function testApiQueryExecuteInvalidData() : void
@@ -227,7 +227,7 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Controller\ApiController
+     * @covers \Modules\DatabaseEditor\Controller\ApiController
      * @group module
      */
     public function testApiQueryExecuteInvalidConnection() : void

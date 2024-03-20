@@ -22,7 +22,7 @@ use Modules\DatabaseEditor\Models\NullQuery;
 final class NullQueryTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * @covers Modules\DatabaseEditor\Models\NullQuery
+     * @covers \Modules\DatabaseEditor\Models\NullQuery
      * @group module
      */
     public function testNull() : void
@@ -31,7 +31,7 @@ final class NullQueryTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Models\NullQuery
+     * @covers \Modules\DatabaseEditor\Models\NullQuery
      * @group module
      */
     public function testId() : void
@@ -41,7 +41,7 @@ final class NullQueryTest extends \PHPUnit\Framework\TestCase
     }
 
     /**
-     * @covers Modules\DatabaseEditor\Models\NullQuery
+     * @covers \Modules\DatabaseEditor\Models\NullQuery
      * @group module
      */
     public function testJsonSerialize() : void
