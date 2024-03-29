@@ -82,7 +82,7 @@ final class QueryMapper extends DataMapperFactory
     public const BELONGS_TO = [
         'createdBy' => [
             'mapper'   => AccountMapper::class,
-            'external' => 'db_editor_query_created_at',
+            'external' => 'db_editor_query_created_by',
         ],
     ];
 }
