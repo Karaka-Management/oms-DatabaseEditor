@@ -23,6 +23,7 @@ return [
             'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiQueryExecute',
             'verb'       => RouteVerb::GET,
             'csrf'       => true,
+            'active' => true,
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::READ,
@@ -33,6 +34,7 @@ return [
             'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiQueryCreate',
             'verb'       => RouteVerb::PUT,
             'csrf'       => true,
+            'active' => true,
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::READ,
@@ -45,6 +47,7 @@ return [
             'dest'       => '\Modules\DatabaseEditor\Controller\ApiController:apiConnectionTest',
             'verb'       => RouteVerb::GET,
             'csrf'       => true,
+            'active' => true,
             'permission' => [
                 'module' => ApiController::NAME,
                 'type'   => PermissionType::READ,
