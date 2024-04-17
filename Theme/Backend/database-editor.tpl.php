@@ -60,7 +60,7 @@ echo $this->data['nav']->render(); ?>
                     <tr><td><label for="iTitle"><?= $this->getHtml('Title'); ?></label>
                     <tr><td><input id="iTitle" type="text" value="<?= $this->printHtml($query->title); ?>">
                     <tr><td><label for="iQuery"><?= $this->getHtml('Query'); ?></label>
-                    <tr><td><textarea id="iQuery" style="height: 300px" form="fDatabaseConnection"><?= $this->printHtml($query->query); ?></textarea>
+                    <tr><td><textarea id="iQuery" style="height: 300px" form="fDatabaseConnection"><?= $this->printTextarea($query->query); ?></textarea>
                 </table>
             </div>
             <div class="portlet-foot">
