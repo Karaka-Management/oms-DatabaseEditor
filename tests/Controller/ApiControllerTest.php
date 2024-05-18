@@ -217,6 +217,6 @@ final class ApiControllerTest extends \PHPUnit\Framework\TestCase
         $request->setData('database', __DIR__ . '/../../../../plization');
 
         $this->module->apiQueryExecute($request, $response);
-        self::assertGreaterThan(0, $response->getData('')->toArray()['validation']['status']);
+        self::assertGreaterThan(0, $response->getDataArray('')['validation']['status']);
     }
 }
