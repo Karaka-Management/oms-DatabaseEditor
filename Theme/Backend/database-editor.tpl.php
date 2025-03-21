@@ -17,7 +17,7 @@ use phpOMS\DataStorage\Database\DatabaseType;
 use phpOMS\Utils\IO\Csv\CsvSettings;
 
 $dbTypes = DatabaseType::getConstants();
-$query   = $this->getData('query') ?? new NullQuery();
+$query   = $this->data['query'] ?? new NullQuery();
 
 echo $this->data['nav']->render(); ?>
 
